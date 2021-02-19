@@ -1,0 +1,7 @@
+terminal type (npm init) to get npm started
+
+//we press enter on every question to get the default of every question
+
+go to npm website to get basic npm commands and packages
+//npm has all the basic tools you would need and how they work
+
