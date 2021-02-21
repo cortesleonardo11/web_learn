@@ -1,5 +1,6 @@
 // we installed yargs package to help with input
 // call yargs
+const { argv } = require("yargs");
 const yargs = require(`yargs`);
 
 // how we would originally get itput in terminal
@@ -26,11 +27,27 @@ yargs.command({
 })
 
 // remove command
+// terminal type (node main.js remove --title="mytitle")
+// if you terminal type (node main.js remove) a list will pop out saying title is missing
+// with body (nodu main.js remove --title="mytitle" -- body="my body")
 yargs.command({
     command: `remove`,
     describe: `remove notes`,
-    handler: function() {
-        console.log(`remove note`)
+    builder: {
+        title: {
+            describe: 'note title',
+            demandOption: true, //have to add for command to perform
+            type: 'string' //will prove that we always have a string type for title
+        },
+        body: {
+            describe: 'note body',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function(argv) {
+        console.log(`Title: ` + argv.title)
+        console.log('body: ' + argv.body)
     }
 })
 
@@ -52,5 +69,8 @@ yargs.command({
     }
 })
 
-//moved to the bottom because program would not function correctly other wise
-console.log(yargs.argv);
+// prints what yargs parses
+//console.log(yargs.argv);
+
+// already know yargs is parsed
+yargs.parse();
