@@ -25,6 +25,23 @@ yargs.command({
     }
 })
 
+
+
+yargs.command({
+    command: 'remove',
+    description: 'remove an existing note',
+    builder: {
+        title: {
+            describe: 'note title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function(argv) {
+        note.removenote(argv.title);
+    }
+})
+
 //console.log(yargs.argv);
 
 //used to help parse the new information

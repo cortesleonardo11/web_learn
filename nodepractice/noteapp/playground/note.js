@@ -1,5 +1,6 @@
 // used to read and write to file system
 const fs = require('fs');
+const chalk = require('chalk');
 
 
 //add note and see if it already exist
@@ -21,9 +22,10 @@ const addNote = function(title, body) {
                 title: title,
                 body: body
             })
+            console.log(chalk.green.inverse('note added'))
             writeNote(parsed_note);
         } else {
-            console.log('this title already exist')
+            console.log(chalk.inverse.red('this title already exist'))
         }
 
     }
@@ -34,7 +36,7 @@ const addNote = function(title, body) {
 const writeNote = function(note) {
     const string_of_note = JSON.stringify(note);
     fs.writeFileSync('note.json', string_of_note);
-    console.log('note created')
+    //console.log('note created')
 }
 
 //read from note.json
@@ -50,11 +52,34 @@ const readNote = function() {
     } catch (e) {
         return [];
     }
+}
+
+//load in the parsed info of notes.json
+// filter so that only title that are not equal to the title  we want to remove are saved  
+//the only result in the filtered array should be titles that we would want to keep
+// pass the filtered array into writeNote to save the file
+//if a note is removed log note removed with a green backround
+// if a no note removed log no note found with a red backround
+const removeNote = function(title) {
+    const parsedFile = readNote();
+    const noMatchingTitle = parsedFile.filter(function(file) {
+        return file.title != title;
+    })
+
+    if (parsedFile.length === noMatchingTitle.length) {
+        console.log(chalk.inverse.red('no note found'));
+    } else {
+        console.log(chalk.inverse.green('note removed'));
+        writeNote(noMatchingTitle);
+    }
+
+
 
 
 }
 
 // used to export our function 
 module.exports = {
-    addnote: addNote
+    addnote: addNote,
+    removenote: removeNote
 }
