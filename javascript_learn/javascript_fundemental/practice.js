@@ -36,6 +36,8 @@ const InterestedIn = prompt(`what information would you like to know about?
                 or freinds`);
 
 // if user response does not exist let the user know that they entered invalid 
+// if user entered value that exist a truthy value will be returned, else its a
+// falsey value
 if(Leo[InterestedIn])
 {
     console.log(Leo[InterestedIn]);
