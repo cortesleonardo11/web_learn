@@ -8,3 +8,30 @@ const num3 = 3;
 num4 = 4; 
 
 console.log(`num1 = ${num1}, num2 = ${num2}, num3 = ${num3}, num4 = ${num4}`); 
+
+
+
+/////////////////// objects //////////////////////////
+// order does not matter
+// can assign names to the value 
+
+///// how to create an object
+const Leo = {
+    firstname: 'leonardo',
+    lastname: 'cortes',
+    age: 2022 - 1998,
+    job: 'trucker',
+    freinds:['Amber', 'Santi', 'Chewy']//array in object
+};
+
+////retrieve information from the objects 
+//bracket notation
+console.log(Leo['firstname']);
+//dot notation
+console.log(Leo.firstname);
+
+//// how to add new elements to the object
+Leo.location = 'Edinburg';
+Leo['youtube'] = 'Leo Maze';
+
+console.log(Leo);// print Leo object
