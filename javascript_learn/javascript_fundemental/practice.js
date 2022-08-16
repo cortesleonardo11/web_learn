@@ -30,8 +30,24 @@ console.log(Leo['firstname']);
 //dot notation
 console.log(Leo.firstname);
 
+//prompt user what information they would like to access
+const InterestedIn = prompt(`what information would you like to know about?
+                choose between firstname, lastname, age, job, 
+                or freinds`);
+
+// if user response does not exist let the user know that they entered invalid 
+if(Leo[InterestedIn])
+{
+    console.log(Leo[InterestedIn]);
+}else
+{
+    console.log ('wrong request!!! wrong input')
+}
+
+/*
 //// how to add new elements to the object
 Leo.location = 'Edinburg';
 Leo['youtube'] = 'Leo Maze';
 
 console.log(Leo);// print Leo object
+*/
