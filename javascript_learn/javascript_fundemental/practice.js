@@ -1,22 +1,19 @@
 
 
-
+// this is calling the method that it is located in
+// this can be calling local method or global method
+// this helps with the dont repeat yourself principal
 const ageObject = 
 {
     Mybirthyear: 1998,
-    // here we create a function insed of an object
-    calcAge: function(genBirthYear)
+    // here we create a function inside of an object
+    calcAge: function()
     {
-        return 2022 - genBirthYear;
+        return 2022 - this.Mybirthyear;// this points to ageObject
     }
 }
 
 // we call the function inside the object using
 // the dot notation
-console.log(ageObject.calcAge(1998));
-//bracket notation
-console.log(ageObject['calcAge'](1998));
+console.log(ageObject.calcAge());
 
-
-// this is calling the method that it is located in
-// so it can be calling local method or global method
