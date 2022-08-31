@@ -4,6 +4,7 @@
 {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .container
@@ -92,7 +93,6 @@ p{
 article ol, ul
 {
     font-size: 20px;
-    margin-left: 50px;
     margin-bottom: 20px;
 }
 
@@ -130,8 +130,7 @@ aside
     border-top: 5px solid #1098ad;
     border-bottom: 5px solid #1098ad;
     background-color: #f7f7f7;
-    padding: 50px 0;
-   /* margin-right: 40%;*/
+    padding: 50px 40px;
 }
 
 h4 
